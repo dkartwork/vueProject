@@ -6,6 +6,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from './components/Home.vue';
 import AboutPage from './components/About.vue';
 import NotFound from './components/NotFound.vue';
+import JSONAPI from './components/Json_api.vue';
 
 // กำหนด Routes
 const routes = [
@@ -18,6 +19,11 @@ const routes = [
     path: '/about',
     name: 'About',
     component: AboutPage, // เมื่อไปที่ path '/about' จะไปที่คอมโพเนนต์ About.vue
+  },
+  {
+    path: '/api',
+    name: 'Json_api',
+    component: JSONAPI,
   },
   {
     path: '/:catchAll(.*)', // สำหรับหน้าผิดพลาด 404
