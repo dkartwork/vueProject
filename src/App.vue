@@ -1,26 +1,39 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <header>
+      <h1 class="text-3xl font-bold text-center py-4">Welcome to Vue Router Example</h1>
+      <nav class="flex justify-center space-x-4">
+        <router-link to="/" class="text-blue-500 hover:underline">Home</router-link>
+        <router-link to="/about" class="text-blue-500 hover:underline">About</router-link>
+      </nav>
+    </header>
+
+    <main class="py-8">
+      <!-- แสดงเนื้อหาของ Route -->
+      <router-view></router-view>
+    </main>
+
+    <footer class="text-center text-gray-500 py-4">
+      © 2024 Vue Router Example
+    </footer>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+};
 </script>
 
 <style>
+/* ตัวอย่างการใช้ Tailwind CSS */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 </style>
