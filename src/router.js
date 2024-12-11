@@ -7,6 +7,7 @@ import HomePage from './components/Home.vue';
 import AboutPage from './components/About.vue';
 import NotFound from './components/NotFound.vue';
 import JSONAPI from './components/Json_api.vue';
+import REGIS from './components/FormRegis.vue';
 
 // กำหนด Routes
 const routes = [
@@ -24,6 +25,11 @@ const routes = [
     path: '/api',
     name: 'Json_api',
     component: JSONAPI,
+  },
+  {
+    path: '/regis',
+    name: 'FormRegis',
+    component: REGIS,
   },
   {
     path: '/:catchAll(.*)', // สำหรับหน้าผิดพลาด 404

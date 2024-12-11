@@ -4,7 +4,9 @@
       <h1 class="text-3xl font-bold text-center py-4">Welcome to Vue Router Example</h1>
       <nav class="flex justify-center space-x-4">
         <router-link to="/" class="text-blue-500 hover:underline">Home</router-link>
-        <router-link to="/about" class="text-blue-500 hover:underline">About</router-link>
+        <router-link to="/about" class="text-blue-500 hover:underline">Users</router-link>
+        <router-link to="/api" class="text-blue-500 hover:underline">GET API</router-link>
+        <router-link to="/regis" class="text-blue-500 hover:underline">Sign Up</router-link>
       </nav>
     </header>
 
