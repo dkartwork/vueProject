@@ -1,16 +1,20 @@
 <template>
   <div id="app">
-    <header>
-      <h1 class="text-3xl font-bold text-center py-4">Welcome to Vue Router Example</h1>
-      <nav class="flex justify-center space-x-4">
-        <router-link to="/" class="text-blue-500 hover:underline">Home</router-link>
-        <router-link to="/about" class="text-blue-500 hover:underline">Users</router-link>
-        <router-link to="/api" class="text-blue-500 hover:underline">GET API</router-link>
-        <router-link to="/regis" class="text-blue-500 hover:underline">Sign Up</router-link>
-      </nav>
-    </header>
+  <header>
+  <div className="bg-blue-600 text-white">
+   <div className="container mx-auto flex justify-between py-4">
+    <h1 className="text-2xl font-bold">Welcome to Vue Router Example</h1>
+   <nav className="flex space-x-4">
+    <router-link to="/" class="hover:underline">Home</router-link>
+    <router-link to="/about" class="hover:underline">Users</router-link>
+    <router-link to="/api" class="hover:underline">GET API</router-link>
+    <router-link to="/regis" class="hover:underline">Sign Up</router-link>
+   </nav>
+   </div>
+  </div>
+  </header>
 
-    <main class="py-8">
+    <main className="container mx-auto my-8">
       <!-- แสดงเนื้อหาของ Route -->
       <router-view></router-view>
     </main>
@@ -35,7 +39,6 @@ body {
   padding: 0;
 }
 #app {
-  max-width: 800px;
   margin: 0 auto;
 }
 </style>

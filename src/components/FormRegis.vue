@@ -1,8 +1,10 @@
 <template>
     <div class="max-w-md mx-auto p-8 bg-white shadow-lg rounded-lg">
       <h2 class="text-3xl font-semibold text-center text-gray-800 mb-6">สมัครสมาชิก</h2>
-  
-      <form @submit.prevent="handleSubmit">
+      <div v-if="isLoading" class="flex justify-center items-center">
+          <div class="w-10 h-10 bg-yellow-500 rounded-full animate-bounce"></div>
+      </div>
+      <form v-if="formVisible" @submit.prevent="handleSubmit">
         <div class="space-y-4">
           <div>
             <label for="name" class="block text-lg font-medium text-gray-700">ชื่อเต็ม</label>
@@ -85,12 +87,20 @@
           password: '',
           confirmPassword: '',
           terms: false
+          
         },
-        responseMessage: ''
+        responseMessage: '',
+        extraClass: '',
+        formVisible: true,
+        isLoading: false
       };
     },
     methods: {
       async handleSubmit() {
+        this.extraClass = 'animate-ping-once';
+        this.isLoading = true;
+        this.formVisible = false;
+        await delay(3000); 
         if (this.form.password !== this.form.confirmPassword) {
           alert('รหัสผ่านและยืนยันรหัสผ่านไม่ตรงกัน');
           return;
@@ -102,16 +112,21 @@
         
           try {
             // ส่งข้อมูลไปยัง API ผ่าน POST request
-            const response = await axios.post('http://localhost:3000/api/insert', this.form);          
-            this.responseMessage = response.data.status;
+            const response = await axios.post('http://localhost:5000/api/insert', this.form);          
+            this.responseMessage = (response.data.status==='true') ? 'บันทึกข้อมูลสำเร็จ.' : 'ไม่สำเร็จ.';
           } catch (error) {
             console.error('เกิดข้อผิดพลาดในการส่งข้อมูล:', error);
             this.responseMessage = 'เกิดข้อผิดพลาดในการส่งข้อมูล';
+          } finally {
+            this.isLoading = false; // หยุดแสดงการโหลด
           }
         
       }
     }
   };
+  function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
   </script>
   
   <style scoped>
